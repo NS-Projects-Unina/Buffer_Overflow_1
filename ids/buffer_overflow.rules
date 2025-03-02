@@ -1,0 +1,4 @@
+alert tcp any any -> 172.25.0.10 4444 (msg:"Possible Exploit Attempt - Buffer Overflow (Padding)"; pcre:"/(.)\1{5,}/"; flow:to_server,established; classtype:attempted-admin; sid:1000001; rev:1;)
+alert tcp any any -> 172.25.0.10 4444 (msg:"Possible Exploit Attempt - Buffer Overflow (NOP Sled)"; content:"|90 90 90 90|"; flow:to_server,established; classtype:attempted-admin; sid:1000002; rev:1;)
+alert tcp any any -> 172.25.0.10 4444 (msg:"Possible Exploit Attempt - Buffer Overflow (Shellcode Signature)"; content:"|b8 01 00 00 00 bb 01 00 00 00 cd 80|"; flow:to_server,established; classtype:attempted-admin; sid:1000003; rev:1;)
+alert tcp any any -> 172.25.0.10 4444 (msg:"Possible Exploit Attempt - Buffer Overflow (Shikata Ga Nai - Shellcode Signature)"; content:"|d9 74 24 f4|"; flow:to_server,established; classtype:attempted-admin; sid:1000004; rev:1;)

@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  server:
+    image: vulnerable_server
+    container_name: vulnerable_server
+    networks:
+      internal_network:
+        ipv4_address: 172.25.0.10
+    ports:
+      - "4444:4444"
+    privileged: true
+    security_opt:
+      - seccomp=unconfined
+    command:
+      [
+        "/bin/bash",
+        "-c",
+        "echo 0 > /proc/sys/kernel/randomize_va_space && sleep infinity",
+      ]
+
+  attacker:
+    image: client_attacker
+    container_name: client_attacker
+    networks:
+      internal_network:
+        ipv4_address: 172.25.0.20
+    command: ["sleep", "infinity"]
+
+  ids:
+    image: ids
+    container_name: ids
+    privileged: true
+    networks:
+      internal_network:
+        ipv4_address: 172.25.0.30
+    command: ["/bin/bash", "-c", "ip link set eth0 promisc on"]
+
+networks:
+  internal_network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_icc: "true"
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
