@@ -64,7 +64,7 @@ lo stesso è stato concatenato a del padding per riempire lo stack fino all'EIP,
 
 ## Configurazione IDS e Rilevamento dell'Attacco
 
-Il sistema di rilevamento dell'attacco è stato realizzato con **Snort**, configurato per monitorare il traffico tra client e server con delle regole custom per il rilevamento di possibili attacchi sulla nostra rete interna. Sono state definite regole per rilevare l'attacco di buffer overflow analizzando pattern ricorrenti nel payload inviato dall'attaccante.
+Il sistema di rilevamento dell'attacco è stato realizzato con **Snort**, configurato per monitorare il traffico tra client e server con delle regole custom per il rilevamento di possibili attacchi sulla nostra rete interna. Sono state definite regole per rilevare l'attacco di buffer overflow analizzando pattern caratteristici nel payload inviato dall'attaccante.
 
 ### Regole IDS per il Rilevamento
 
