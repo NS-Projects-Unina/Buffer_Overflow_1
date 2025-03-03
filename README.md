@@ -68,7 +68,7 @@ Il sistema di rilevamento dell'attacco è stato realizzato con **Snort**, config
 
 ### Regole IDS per il Rilevamento
 
-Di seguito sono riportate due regole implementate in Snort per identificare il tentativo di exploit ed eventuali successive contromisure da parte dell'attaccante, definendo un escalation di tecniche di attacco e contromisure che sono state implementate ed analizzate nel presente elaborato.
+Di seguito sono riportate le regole implementate in Snort per identificare il tentativo di exploit ed eventuali successive contromisure da parte dell'attaccante, definendo un escalation di tecniche di attacco e contromisure che sono state implementate ed analizzate nel presente elaborato.
 
 #### Rilevamento di Sequenze Ripetute (Padding Overflow)
 
